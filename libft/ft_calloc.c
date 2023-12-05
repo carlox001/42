@@ -16,10 +16,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*arr;
 
-	arr = malloc(nmemb * size);
+	arr = malloc(nmemb * size); //numero di elementi * la loro grandezza individuale
 	if (!arr)
 		return (NULL);
-	ft_bzero(arr, nmemb * size);
+	ft_bzero(arr, nmemb * size); //inizializzo l'array riscrivendo '/0'
 	return (arr);
 }
 /*
