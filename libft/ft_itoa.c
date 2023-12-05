@@ -24,7 +24,7 @@ static size_t	ft_count_int(long n)
 	}
 	while (n)
 	{
-		n /= 10;
+		n /= 10; //tronco a partire dall'ultima cifra finché non rimane nulla
 		i++;
 	}
 	return (i);
@@ -49,9 +49,9 @@ char	*ft_itoa(int n)
 		nb = -nb;
 	}
 	res[len] = '\0';
-	while (nb > 0)
+	while (nb > 0) //copiatura inversa
 	{
-		res[len-- - 1] = (nb % 10) + '0';
+		res[len-- - 1] = (nb % 10) + '0'; //copio l'ultima cifra convertita in char
 		nb /= 10;
 	}
 	return (res);
