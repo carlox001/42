@@ -16,16 +16,16 @@ static int	ft_check_sign(const char *n, int i, int *index, int sign)
 	int	count;
 
 	count = 0;
-	while (n[i] == '+' || n[i] == '-')
+	while (n[i] == '+' || n[i] == '-') //finché nella posizione abbiamo uno dei due segni
 	{
 		if (n[i] == '-')
 			sign *= -1;
-		if (count > 0)
+		if (count > 0) //Se c'è più di un segno la funzione si blocca
 			return (0);
 		count++;
 		i++;
 	}
-	*index = i;
+	*index = i; //Se l'indice è aumentato, allora cambia anche l'indirizzo restituito
 	return (sign);
 }
 
@@ -38,7 +38,7 @@ int	ft_atoi(const char *nptr)
 	n = 0;
 	i = 0;
 	sign = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ') //finché è un carattere non stampabile o uno spazio
 		i++;
 	sign = ft_check_sign(nptr, i, &i, sign);
 	while (nptr[i] >= '0' && nptr[i] <= '9')
