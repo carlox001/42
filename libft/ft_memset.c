@@ -16,14 +16,14 @@ void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char		*p;
 	unsigned char		val;
-	size_t				i;
+	size_t			i;
 
 	p = s;
-	val = (unsigned char)c;
+	val = (unsigned char)c; //casting
 	i = 0;
 	while (i < n)
 	{
-		p[i] = val;
+		p[i] = val; //riscrivo in ogni cella lo stesso valore
 		i++;
 	}
 	return (s);
