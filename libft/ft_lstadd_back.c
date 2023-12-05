@@ -18,11 +18,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (new == NULL)
 		return ;
-	if (*lst == NULL)
+	if (*lst == NULL) //Se la lista è vuota aggiungi il nuovo nodo
 		*lst = new;
 	else
 	{
-		current = *lst;
+		current = *lst; //Si dà un valore al nodo attuale in cui ci troviamo
 		while (current->next != NULL)
 			current = current->next;
 		current->next = new;
