@@ -19,9 +19,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		return ;
 	while (*lst != NULL)
 	{
-		current = *lst;
-		*lst = (*lst)->next;
-		(*del)(current->content);
-		free(current);
+		current = *lst; //salvo il nodo attuale
+		*lst = (*lst)->next; //vado avanti
+		(*del)(current->content); //elimino il contenuto del nodo attuale
+		free(current); 
 	}
 }
