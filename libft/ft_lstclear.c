@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	if (del == NULL)
 		return ;
-	while (*lst != NULL)
+	while (*lst != NULL)//finchè non si arriva alla fine della lista
 	{
 		current = *lst; //salvo il nodo attuale
 		*lst = (*lst)->next; //vado avanti
