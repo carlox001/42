@@ -20,19 +20,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	new_lst = NULL;
 	if (f == NULL || del == NULL)
 		return (NULL);
-	while (lst != NULL)
+	while (lst != NULL)//fino alla fine della lista og
 	{
-		map_content = (*f)(lst->content);
-		new_node = (t_list *)malloc(sizeof(t_list));
-		if (new_node == NULL)
+		map_content = (*f)(lst->content); //salvo il contenuto a cui è stata applicata la funzione f senza cambiare quello og
+		new_node = (t_list *)malloc(sizeof(t_list)); //creo nuovo nodo
+		if (new_node == NULL) //se l'allocazione fallisce
 		{
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
-		new_node->content = map_content;
+		new_node->content = map_content; //salvo il contenuto  nel nuovo nodo
 		new_node->next = NULL;
-		ft_lstadd_back(&new_lst, new_node);
-		lst = lst->next;
+		ft_lstadd_back(&new_lst, new_node); //aggiungo un nuovo nodo alla fine
+		lst = lst->next; //va avanti con la lista og
 	}
 	return (new_lst);
 }
