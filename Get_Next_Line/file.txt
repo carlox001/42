@@ -1,7 +1,0 @@
-Una variabile statica e' locale ad una particolare funzioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.
-E' inizializzata una sola volta, la prima volta che tale funzione viene chiamata e all'interno di essa,
-e il suo valore resta inalterato quando si esce dalla funzione,
-per cui quando si richiama nuovamente la funzione tale variabile ha ancora il valore assegnatogli precedentemente.
-Per definire statica una variabile e' sufficente anteporre la parola static alla dichiarazione della variabile.
-La variabile static e' creata una sola volta ed il suo valore memorizzato.
-
