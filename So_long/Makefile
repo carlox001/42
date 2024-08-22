@@ -6,13 +6,16 @@
 #    By: czerini <czerini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/10 15:10:41 by czerini           #+#    #+#              #
-#    Updated: 2024/08/11 19:12:17 by czerini          ###   ########.fr        #
+#    Updated: 2024/08/22 15:48:34 by czerini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = so_long.c
+PRINTF = ./ft_printf/libftprintf.a
+LIBFT = ./libft/libft.a
+
+SRC = so_long.c get_next_line.c get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -22,11 +25,11 @@ RM = rm -f
 
 AR = ar rcs
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -Ift_printf -Ilibft
 
-MLX_FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm
+MLX_FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -Lft_ptintf -Llibft
 
-all: $(NAME)
+all: $(NAME) $(PRINTF) $(LIBFT)
 
 minilibx:
 	@$(MAKE) -C minilibx-linux
@@ -35,10 +38,10 @@ minilibx:
 	$(CC) $(CFLAGS) -c -o $@ $< $(INCLUDES)
 
 $(NAME): minilibx $(OBJ)
-	$(CC) $(OBJ) $(MLX_FLAGS) -o $(NAME) $(CFLAGS)
+	$(CC) $(OBJ) $(MLX_FLAGS) -o $(NAME) $(PRINTF) $(LIBFT) $(CFLAGS)
 
 clean:
-	rm *.o /*.o
+	rm *.o /*.o ft_printf/*.o libft/*.o
 
 fclean: clean
 	$(RM)
